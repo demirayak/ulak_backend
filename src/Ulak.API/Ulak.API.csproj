@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.9" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Ulak.Application\Ulak.Application.csproj" />
     <ProjectReference Include="..\Ulak.Infrastructure\Ulak.Infrastructure.csproj" />
     <ProjectReference Include="..\Ulak.Persistence\Ulak.Persistence.csproj" />
