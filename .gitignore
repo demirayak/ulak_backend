@@ -1,0 +1,36 @@
+## Visual Studio
+.vs/
+*.user
+*.suo
+*.cache
+*.log
+
+## Build
+bin/
+obj/
+
+## Rider
+.idea/
+
+## VS Code
+.vscode/
+
+## OS
+.DS_Store
+Thumbs.db
+
+## Test
+TestResults/
+
+## Publish
+publish/
+
+## Node
+node_modules/
+
+## Env
+.env
+
+## Logs
+logs/
+*.log
