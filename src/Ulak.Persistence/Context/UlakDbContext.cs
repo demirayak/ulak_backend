@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Ulak.Domain.Entities;
 //using Ulak.Domain.Entities;
 
 namespace Ulak.Persistence.Context
@@ -11,5 +12,7 @@ namespace Ulak.Persistence.Context
 
         // Örnek DbSet
         //public DbSet<User> Users { get; set; }  // ileride entity ekle
+
+        public DbSet<Kullanici> Kullanicilar => Set<Kullanici>();
     }
 }

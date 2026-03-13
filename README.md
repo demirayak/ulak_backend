@@ -108,3 +108,10 @@ dotnet run --project src/Ulak.API
 
 Bu proje eğitim + gerçek ürün altyapısı olarak geliştirilmektedir.
 
+# EF Core Migration Kullanımı
+
+## Migration Oluşturma
+dotnet ef migrations add <MigrationName> -p src/Ulak.Persistence -s src/Ulak.API --output-dir Migrations/Dev
+
+## Veritabanını Güncelleme
+dotnet ef database update -p src/Ulak.Persistence -s src/Ulak.API

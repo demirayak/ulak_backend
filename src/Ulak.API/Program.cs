@@ -4,7 +4,7 @@ using Ulak.Persistence.Context;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<UlakDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
+    options.UseNpgsql(builder.Configuration.GetConnectionString("Default"))
 );
 
 // Add services to the container.
