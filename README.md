@@ -286,3 +286,8 @@ builder.Host.UseSerilog();
 ```
 
 Without this, host-level logging will not work.
+
+
+## Health Check
+
+Uygulamanın ayakta olup olmadığını hızlıca kontrol etmek için `/health` endpoint’i eklenmiştir. Uygulama çalışırken `https://localhost:5001/health` veya ilgili host üzerinden `http://localhost:5000/health` adresi çağrılarak kontrol edilebilir. Uygulama sağlıklı şekilde çalışıyorsa bu endpoint başarılı (`200 OK`) response döner. Yapı, ileride veritabanı ve diğer bağımlılık kontrolleri eklenecek şekilde genişletilebilir olarak hazırlanmıştır.
