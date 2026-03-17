@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using Serilog;
+using System.Net;
 using System.Text.Json;
 using Ulak.Application.Common.Models;
 
@@ -15,6 +16,7 @@ public class ExceptionMiddleware
         _env = env;
     }
 
+
     public async Task InvokeAsync(HttpContext context)
     {
         try
@@ -23,11 +25,12 @@ public class ExceptionMiddleware
         }
         catch (Exception ex)
         {
-            await HandleException(context, ex);
+            Log.Error(ex, "Beklenmeyen hata oluştu");
+            await HandleExceptionAsync(context, ex);
         }
     }
 
-    private async Task HandleException(HttpContext context, Exception ex)
+    private async Task HandleExceptionAsync(HttpContext context, Exception ex)
     {
         var response = new ErrorResponse
         {
