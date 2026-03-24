@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
+﻿using Microsoft.OpenApi.Models;
 using Serilog;
 using Serilog.Sinks.Elasticsearch;
 using System.Reflection;
 using Ulak.Api.Middleware;
-using Ulak.Persistence.Context;
+using Ulak.Application;
+using Ulak.Infrastructure;
+using Ulak.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,22 +34,10 @@ Log.Logger = new LoggerConfiguration()
 
 builder.Host.UseSerilog();
 
-// DbContext
-builder.Services.AddDbContext<UlakDbContext>(options =>
-{
-    options.UseNpgsql(builder.Configuration.GetConnectionString("Default"));
-
-    if (builder.Environment.IsDevelopment())
-    {
-        options.EnableSensitiveDataLogging();
-        options.EnableDetailedErrors();
-    }
-
-    options.LogTo(log =>
-    {
-        Log.Information(log);
-    }, LogLevel.Information);
-});
+// Layered registrations
+builder.Services.AddPersistence(builder.Configuration, builder.Environment);
+builder.Services.AddInfrastructure(builder.Configuration, builder.Environment);
+builder.Services.AddApplication();
 
 // Controllers
 builder.Services.AddControllers();
