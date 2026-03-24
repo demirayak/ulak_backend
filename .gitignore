@@ -1,36 +1,63 @@
 ## Visual Studio
 .vs/
 *.user
+*.rsuser
 *.suo
+*.userosscache
+*.sln.docstates
 *.cache
-*.log
 
-## Build
-bin/
-obj/
-
-## Rider
+## Rider / JetBrains
 .idea/
+*.sln.iml
 
 ## VS Code
 .vscode/
+
+## Build
+[Bb]in/
+[Oo]bj/
+out/
+publish/
+
+## Test / Coverage
+TestResults/
+coverage/
+coverage-report/
+*.trx
+*.coverage
+*.coveragexml
+
+## Logs
+logs/
+Logs/
+*.log
 
 ## OS
 .DS_Store
 Thumbs.db
 
-## Test
-TestResults/
+## Environment / Local config
+.env
+.env.*
+appsettings.Local.json
+appsettings.Development.local.json
+appsettings.*.local.json
+secrets.json
 
-## Publish
-publish/
+## Publish profiles
+Properties/PublishProfiles/*.pubxml.user
+Properties/PublishProfiles/*.publishsettings
 
 ## Node
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-## Env
-.env
-
-## Logs
-logs/
-*.log
+## Temporary / Backup
+*.tmp
+*.temp
+*.bak
+*.old
+*.orig
